@@ -1,0 +1,9 @@
+OpenSSH_8.4p1 Debian-5, OpenSSL 1.1.1m  14 Dec 2021
+debug1: Reading configuration data /home/ozo/.ssh/config
+debug1: /home/ozo/.ssh/config line 1: Applying options for 44.192.23.250
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: /etc/ssh/ssh_config line 19: include /etc/ssh/ssh_config.d/*.conf matched no files
+debug1: /etc/ssh/ssh_config line 21: Applying options for *
+debug1: Connecting to 44.192.23.250 [44.192.23.250] port 22.
+debug1: connect to address 44.192.23.250 port 22: Connection timed out
+ssh: connect to host 44.192.23.250 port 22: Connection timed out
