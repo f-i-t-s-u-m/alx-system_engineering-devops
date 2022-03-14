@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # install bash
 # change the content of default site
-exec apt-get -y install ngnix
+
+sudo apt-get -y install nginx
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
-sudo bash -c 'service nginx restart'
+#sudo /etc/init.d/nginx restart
