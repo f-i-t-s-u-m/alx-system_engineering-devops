@@ -1,0 +1,5 @@
+#! /usr/bin/bash
+# install bash
+# change the content of default site
+exec apt-get -y install ngnix
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
