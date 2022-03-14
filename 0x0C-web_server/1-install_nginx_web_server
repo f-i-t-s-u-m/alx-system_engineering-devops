@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#!/usr/bin/env bash
 # install bash
 # change the content of default site
 exec apt-get -y install ngnix
