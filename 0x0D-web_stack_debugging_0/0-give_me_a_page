@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # start ubuntu apache service
 
-sudo -c 'docker run -d -t -p 8080:80 -it holbertonschool/265-0 service start apache2'
+sudo -c 'docker exec -it vigilant_tesla service start apache2'
