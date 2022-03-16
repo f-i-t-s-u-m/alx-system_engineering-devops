@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # start ubuntu apache services
 
-docker run  -p 8080:80 -it holbertonschool/265-0 service apache2 start
+docker exec -it vigilant_tesla service apache2 start
 
