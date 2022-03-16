@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # start ubuntu apache service
 
-sudo docker exec -it vigilant_tesla service start apache2
+sudo docker exec -it vigilant_tesla service apache2 start
