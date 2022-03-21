@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
-# 2x number of server
+# update server
 sudo apt-get -y update
+
+# install nginx
 sudo apt-get -y install nginx
+
+#updatee index
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+
+sudo bash -c 'sed -i "48i \\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n" /etc/nginx/sites-available/default'
+
+# update header 
 sudo bash -c 'sed  -i -z "s#location / {#&\n\t\tadd_header X-Served-By $HOSTNAME;#1" /etc/nginx/sites-available/default'
+
+#restart
 sudo bash -c 'service nginx restart'
 
