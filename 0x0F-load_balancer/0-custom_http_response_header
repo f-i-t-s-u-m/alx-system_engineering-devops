@@ -8,8 +8,8 @@ sudo apt-get -y install nginx
 #updatee index
 sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
 
-redirect="\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
-sudo sed -i "48s|.*|$redirect|" /etc/nginx/sites-available/default
+redirect="#redirect\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;\n\t}\n"
+sudo sed -i "48i $redirect" /etc/nginx/sites-available/default
 
 # update header 
 sudo bash -c 'sed  -i -z "s#location / {#&\n\t\tadd_header X-Served-By $HOSTNAME;#1" /etc/nginx/sites-available/default'
