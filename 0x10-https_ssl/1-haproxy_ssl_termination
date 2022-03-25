@@ -33,15 +33,15 @@ defaults
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
 
-frontend http
+frontend lb-01
 	bind *:80
-	bind *:443 ssl crt /etc/haproxy/certs/www.alx-community.tech.pem
+	bind *:443 ssl crt /etc/haproxy/cert/fullcert.pem
 	mode http
-	default_backend web-backend
+	default_backend webservers
 
-backend web-backend
+backend webservers
 	balance roundrobin
-	mode http
-	server node1 34.138.32.10:80 check
-	server node2 34.237.53.89:80 check
+	option forwardfor
+	server web-01 44.200.180.194:80 check
+	server web-02 3.228.20.93:80 check
 
