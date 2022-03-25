@@ -35,7 +35,7 @@ defaults
 
 frontend http
 	bind *:80
-	bind *:443 ssl crt /etc/haproxy/certs/www.tonycrz.tech.pem
+	bind *:443 ssl crt /etc/haproxy/certs/www.alx-community.tech.pem
 	mode http
 	default_backend web-backend
 
