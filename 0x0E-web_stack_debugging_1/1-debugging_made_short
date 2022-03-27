@@ -2,5 +2,6 @@
 # am about to fix ya
 sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+sudo /etc/init.d/nginx start
 sudo rm /run/nginx.pid
 
