@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#generate backup
+pass=$1
+mysqldump -u root -p"$pass" tyrell_corp > backup.sql
+tar -czvf $(date '+%Y-%m-%d.tar.gz') backup.sql
