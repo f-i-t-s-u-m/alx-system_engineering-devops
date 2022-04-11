@@ -25,4 +25,4 @@ if __name__ == "__main__":
         print('Employee {} is done with tasks({}/{})'
               .format(em.json()['name'], done_task, all_tasks))
         for i in tasks:
-            print('\t '+i)
+            print('\t'+i)
