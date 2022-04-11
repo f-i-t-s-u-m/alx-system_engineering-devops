@@ -7,8 +7,8 @@ from sys import argv
 if __name__ == "__main__":
 
     tasks = []
-    done_task = 0
-    all_tasks = 0
+    completed = 0
+    totalTask = 0
 
     em = requests.get(f'https://jsonplaceholder.typicode.com/users/{argv[1]}')
     if len(em.json()) != 0:
@@ -17,12 +17,12 @@ if __name__ == "__main__":
         for i in r.json():
             if i['completed'] is True:
                 tasks.append(i['title'])
-                done_task += 1
+                completed += 1
 
-            all_tasks += 1
+            totalTask += 1
 
         print('Employee {} is done with tasks({}/{}):'
-              .format(em.json()['name'], done_task, all_tasks))
+              .format(em.json()['name'], completed, totalTask))
 
         for i in tasks:
             print('\t '+i)
