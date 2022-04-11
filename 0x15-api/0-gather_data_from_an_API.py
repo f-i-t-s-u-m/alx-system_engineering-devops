@@ -2,27 +2,30 @@
 """ Gather data from an api """
 
 import requests
-from sys import argv
+import sys
 
 if __name__ == "__main__":
 
     tasks = []
     completed = 0
     totalTask = 0
+    userId = sys.argv[1]
 
-    em = requests.get(f'https://jsonplaceholder.typicode.com/users/{argv[1]}')
-    if len(em.json()) != 0:
-        r = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
-                         .format(argv[1]))
-        for i in r.json():
-            if i['completed'] is True:
-                tasks.append(i['title'])
-                completed += 1
+    user = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                        .format(userId))
+    userName = user.json().get('name')
 
-            totalTask += 1
+    r = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
+                     .format(userId))
+    for i in r.json():
+        if i['completed'] is True:
+            tasks.append(i['title'])
+            completed += 1
 
-        print('Employee {} is done with tasks({}/{}):'
-              .format(em.json()['name'], completed, totalTask))
+        totalTask += 1
 
-        for i in tasks:
-            print('\t '+i)
+    print('Employee {} is done with tasks({}/{}):'
+          .format(userName, completed, totalTask))
+
+    for i in tasks:
+        print('\t '+i)
