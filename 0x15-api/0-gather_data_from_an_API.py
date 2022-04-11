@@ -1,11 +1,10 @@
 #!/usr/bin/python3
 """ Gather data from an api """
 
+import requests
+import sys
 
 if __name__ == "__main__":
-
-    from sys import argv
-    import requests
 
     tasks = []
     done_task = 0
@@ -22,8 +21,8 @@ if __name__ == "__main__":
 
             all_tasks += 1
 
-        print('Employee {} is done with tasks({}/{})'
+        print('Employee {} is done with tasks({}/{}):'
               .format(em.json()['name'], done_task, all_tasks))
-        for i in tasks:
-            print('\t'+i)
 
+        for i in tasks:
+            print('\t '+i)
