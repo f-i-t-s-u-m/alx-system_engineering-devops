@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ export to csv file """
 
+import csv
 import requests
 import sys
 
@@ -12,8 +13,8 @@ if __name__ == '__main__':
     todos = requests.get('https://jsonplaceholder.typicode.com/users/{}/todos'
                          .format(userId)).json()
 
-    with open(userId+'.csv', 'w') as csv:
+    with open(userId+'.csv', 'w') as csvfile:
+        csvwriter = csv.writer(csvfile, quotechar='"', quoting=csv.QUOTE_ALL)
         for todo in todos:
-            print('"{}","{}","{}","{}"'
-                  .format(userId, userName,
-                          todo.get('completed'), todo.get('title')), file=csv)
+            csvwriter.writerow([userId, userName, todo.get('completed'),
+                                todo.get('title')])
