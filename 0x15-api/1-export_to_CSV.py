@@ -14,7 +14,8 @@ if __name__ == '__main__':
                          .format(userId)).json()
 
     with open(userId+'.csv', 'w') as csvfile:
-        csvwriter = csv.writer(csvfile, quotechar='"', quoting=csv.QUOTE_ALL)
+        csvwriter = csv.writer(csvfile, delimiter=',', quotechar='"',
+                               quoting=csv.QUOTE_ALL)
         for todo in todos:
-            csvwriter.writerow([userId, userName, todo.get('completed'),
+            csvwriter.writerow([userId, userName, str(todo.get('completed')),
                                 todo.get('title')])
