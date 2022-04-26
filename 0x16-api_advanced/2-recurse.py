@@ -14,15 +14,16 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
                        params={'count': count, 'after': after},
                        headers={'User-agent': 'fitsum'},
                        allow_redirects=False)
-    if req.status_code >= 300:
+    if req.status_code >= 400:
         return None
 
-    if req.json()['data']['after']:
+    if req.json()['data']['after'] is None:
+        return hot_list
+
+    else:
         data = req.json()['data']
         children = data['children']
         new_list = [x['data']['title'] for x in children]
-        hot_list.append(new_list)
-
+        hot_list = hot_list + new_list
+        print(hot_list)
         recurse(subreddit, hot_list, data['after'], data.get('count'))
-    else:
-        return hot_list
