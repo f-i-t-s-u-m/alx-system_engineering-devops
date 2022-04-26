@@ -14,7 +14,7 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
                        params={'count': count, 'after': after},
                        headers={'User-agent': 'fitsum'},
                        allow_redirects=False)
-    if req.status_code >= 400:
+    if req.status_code >= 300:
         return None
 
     if req.json()['data']['after']:
