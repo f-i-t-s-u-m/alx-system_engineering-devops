@@ -2,8 +2,6 @@
 """ redit api check
 """
 
-n = 0
-
 
 def recurse(subreddit, hot_list=[], after=None, count=0):
     """ return number of subcribers
