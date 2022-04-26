@@ -2,13 +2,12 @@
 """ redit api check
 """
 
-import requests
-
 
 def number_of_subscribers(subreddit):
     """ return number of subcribers
         * subreddit - get subreddit account
     """
+    import requests
 
     base_url = f'https://www.reddit.com/r/{subreddit}/about.json'
     header = {'User-Agent': 'alx'}
