@@ -63,7 +63,7 @@ server {
 
 	location /airbnb-dynamic/number_odd_or_even/(any integer) {
 		include proxy_params;
-                proxy_pass 127.0.0.1:5001;
+                proxy_pass 127.0.0.1:500;
 	}
 
 	# pass PHP scripts to FastCGI server
